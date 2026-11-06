@@ -1,0 +1,15 @@
+{
+  "name": "one-more-hex-chess",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ещё одну — шестиугольные шахматы против соперника, который меняет правила",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check dist/app.js && node --check dist/engine.js && node --check dist/campaign.js && node --check dist/ai-worker.js",
+    "start": "python3 -m http.server 8080 --directory dist"
+  },
+  "devDependencies": {
+    "linkedom": "^0.18.12"
+  }
+}

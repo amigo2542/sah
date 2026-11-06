@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171d19">
+  <meta name="description" content="Шестиугольные шахматы против соперника, который не умеет проигрывать. Одержите десять побед, пока он переписывает правила.">
+  <title>Ещё одну. — Правила меняются</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Ещё одну — главная"><span class="brand-icon" aria-hidden="true">♞</span>ещё одну<span class="brand-period">.</span></a>
+    <span class="header-note">ШАХМАТЫ. С ХАРАКТЕРОМ.</span>
+    <nav aria-label="Настройки игры">
+      <button id="sound-button" class="quiet-button" type="button" aria-pressed="false"><span aria-hidden="true">♪</span> <span id="sound-label">Звук выкл.</span></button>
+      <button id="rules-button" class="rules-button" type="button"><span aria-hidden="true">?</span> Как играть</button>
+    </nav>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="chapter-title">
+      <div><p class="eyebrow"><span class="live-dot"></span>ОДИН СОПЕРНИК. ДЕСЯТЬ ПОБЕД.</p><h1 id="chapter-title">Обычные шахматы.<br><span>Пока что.</span></h1><p id="chapter-subtitle" class="intro-copy">Сделайте ход. Посмотрим, кто здесь умеет проигрывать.</p></div>
+      <div class="intro-aside"><span class="tiny-star" aria-hidden="true">✳</span><p>Сначала он попросит реванш.<br>Потом — поменяет правила.</p></div>
+    </section>
+    <div class="game-layout">
+      <section class="board-panel" aria-label="Шахматная доска">
+        <div class="board-toolbar"><div><span class="round-badge" id="round-label">ПАРТИЯ 01</span><span class="toolbar-separator"></span><span id="game-type">РАЗМИНКА</span></div><span class="turn-label" id="turn-label" role="status"><span class="live-dot"></span>ВАШ ХОД</span></div>
+        <div class="board-wrap" id="board-wrap"><div class="board-ambient" aria-hidden="true"></div><svg id="board" viewBox="-305 -264 610 528" role="group" aria-label="Шестиугольная шахматная доска. Выберите фигуру и подсвеченную клетку. Стрелки перемещают фокус, Enter выбирает клетку."></svg></div>
+        <div class="board-status"><div class="you-label"><span class="white-piece-indicator"></span>Вы играете белыми<span class="desktop-only"> · <span id="move-number">Ход 1</span></span></div><span id="selected-label">Выберите фигуру</span></div>
+        <div class="board-actions"><button id="hint-button" class="hint-button" type="button"><span aria-hidden="true">✧</span> Подсказка</button><p id="helper-text" aria-live="polite">Нажмите на белую фигуру, чтобы увидеть её ходы.</p><button id="resign-button" class="quiet-button" type="button">Сдаться <span aria-hidden="true">↗</span></button></div>
+        <div id="tutorial-note" class="tutorial-note"><span class="note-mark">i</span><span>Первая партия — разминка. Найдите мат в один ход. <button id="tutorial-hint" type="button">Покажи, как</button></span></div>
+      </section>
+      <aside class="sidebar" aria-label="Соперник и прогресс">
+        <section class="opponent-card"><div class="opponent-top"><div id="opponent-avatar" class="opponent-avatar" aria-hidden="true"></div><div><p class="eyebrow muted">ПО ТУ СТОРОНУ ДОСКИ</p><h2>Соперник<span class="opponent-dot"></span></h2><span id="mood-label" class="mood-label">Подозрительно спокоен</span></div><span id="opponent-level" class="level-tag">I</span></div><div class="speech"><span class="quote-mark" aria-hidden="true">“</span><p id="opponent-quote" aria-live="polite">Ну что, сыграем? Обещаю быть вежливым.</p></div><div class="temper-row"><span>Самообладание</span><span id="temper-label">пока в порядке</span></div><div class="temper-track" aria-hidden="true"><span id="temper-fill"></span></div></section>
+        <section class="progress-card"><div class="section-label"><h2>ДО ДЕСЯТОЙ ПОБЕДЫ</h2><span aria-hidden="true">↗</span></div><div class="score"><strong id="wins-number">00</strong><span>/ 10</span><p id="progress-caption">Первый шаг —<br>первый мат.</p></div><div id="win-track" class="win-track" aria-label="0 из 10 побед"></div><div class="progress-footer"><span><b id="played-number">0</b> партий сыграно</span><span>Поражения не обнуляют счёт</span></div></section>
+        <section class="active-rules"><div class="section-label"><h2>ПРАВИЛА НА СТОЛЕ</h2><span id="rule-count" class="small-count">01</span></div><div id="active-rules-list"></div><p id="rules-teaser" class="rules-teaser">Пока всё по-честному. Кажется.</p></section>
+      </aside>
+    </div>
+    <section class="below-board"><p><span aria-hidden="true">⬡</span> Знакомые фигуры. Шесть сторон. Ни одной гарантии.</p><button id="reset-button" type="button">Начать историю заново</button></section>
+  </main>
+  <footer><span>ЕЩЁ ОДНУ.</span><p>Некоторые просто не умеют проигрывать.</p><span class="footer-hex" aria-hidden="true">⬡ ⬡ ⬡</span></footer>
+  <dialog id="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>
+  <noscript><div class="noscript">Для игры включите JavaScript в браузере.</div></noscript>
+</body>
+</html>
